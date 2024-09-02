@@ -3,16 +3,24 @@ pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
-import {BitMaps} from "@openzeppelin/contracts/utils/structs/BitMaps.sol";
+import "@openzeppelin/contracts/utils/structs/BitMaps.sol";
 
 contract MerkleAirdrop {
+    address public owner;
     bytes32 public immutable merkleRoot;
     BitMaps.BitMap private _airdropList;
-    IERC20 public airdropToken;
+    address public airdropToken;
+
+    event AirdropClaimed(
+        address indexed claimant,
+        uint256 index,
+        uint256 amount
+    );
 
     constructor(bytes32 _merkleRoot, address _tokenAddress) {
+        owner = msg.sender;
         merkleRoot = _merkleRoot;
-        airdropToken = IERC20(_tokenAddress);
+        airdropToken = _tokenAddress;
     }
 
     function claimAirDrop(
@@ -30,10 +38,11 @@ contract MerkleAirdrop {
         BitMaps.setTo(_airdropList, index, true);
 
         // Transfer tokens
-        require(
-            airdropToken.transfer(msg.sender, amount),
-            "Token transfer failed"
-        );
+        bool success = IERC20(airdropToken).transfer(msg.sender, amount);
+        require(success, "Token transfer failed");
+
+        // Emit event
+        emit AirdropClaimed(msg.sender, index, amount);
     }
 
     function _verifyProof(
