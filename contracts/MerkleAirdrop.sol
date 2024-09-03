@@ -17,6 +17,8 @@ contract MerkleAirdrop {
         uint256 amount
     );
 
+    event Merkprop(bytes32[] proof, bytes32 merkleRoot, bytes32 leaf);
+
     constructor(bytes32 _merkleRoot, address _tokenAddress) {
         owner = msg.sender;
         merkleRoot = _merkleRoot;
@@ -50,10 +52,13 @@ contract MerkleAirdrop {
         uint256 index,
         uint256 amount,
         address addr
-    ) private view {
+    ) private {
         bytes32 leaf = keccak256(
             bytes.concat(keccak256(abi.encode(addr, index, amount)))
         );
+
+        emit Merkprop(proof, merkleRoot, leaf);
+
         require(MerkleProof.verify(proof, merkleRoot, leaf), "Invalid proof");
     }
 }

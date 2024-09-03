@@ -1,3 +1,4 @@
 {
-  "AirdropTokenModule#AirdropToken": "0x7146C58628F8Cf34127e52f19b2f8db3E867ed1a"
+  "AirdropTokenModule#AirdropToken": "0x7146C58628F8Cf34127e52f19b2f8db3E867ed1a",
+  "MerkleAirdropModule#MerkleAirdrop": "0xf776A2690513286ef24c64289c9dE2c4A8664dc9"
 }

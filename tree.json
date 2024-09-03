@@ -6,52 +6,54 @@
     "uint256"
   ],
   "tree": [
-    "0x7ba4feb24f3dc57bce5e62d8381beec451fcf1e64966f8fe8364adf55e9de87b",
-    "0x8c8a5a2ec50a55300cbf0868abc80e60a2ed4e4d2dd0a69c9fc7cf21fad27daf",
-    "0x7f0cdcc81ac56badff338dae3bf2051312cf8f462ae496f3fd281d576dfca795",
-    "0x49f3f94126bef9a01901e5942cb0d5919641073e65055e3aa89d55951610c1a6",
-    "0x4070ebec62e2fd3628d2078cd152bf0ab58e28beb14707da74f17aad85e09b00"
+    "0x1876d941001d7cca5fb0cf5c5ed0d9e21fa02900edc7c732a66629522bc4dcc2",
+    "0x90504220324365ff69183925f06666e12ee0e3b01ae0934649075adfdbd85025",
+    "0xd902db0da15c6edbf83b8a423a564da3470718ed7107d964ff7eaad1d3be0442",
+    "0x7264f005b8f32b439e715eee1ca0fa39bb01f1c71079f979c42862bbb2189841",
+    "0xec5f2766f6118de6b61c951a24b995a78d2c723b1341388e90c8c525e613cfa3",
+    "0xeb924d1f208434012b9819b1e61a673d779cbf0b53b4dfa4a6c36ab78ed539f3",
+    "0xb20380724d65c59a2cd556b97d2a63368dae6b3a0c0dfa2d96b5cf86732bff45",
+    "0x212c5939239a7d64563a7c9c1026efd2f52891e978e5b656af18e384fe0fdc40",
+    "0x0ac672ff67d53cff8d58bac21111b297925149ede8ef64ac3cf6490f7af52ca9"
   ],
   "values": [
     {
       "value": [
-        "0x1F4d253DD0E702C5353998C05298f9F3e550f8c7",
-        {
-          "type": "BigNumber",
-          "hex": "0x00"
-        },
-        {
-          "type": "BigNumber",
-          "hex": "0x0de0b6b3a7640000"
-        }
+        "0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2",
+        "0",
+        "9000000000000000000"
       ],
-      "treeIndex": 3
-    },
-    {
-      "value": [
-        "0xA32c0c266f704f1E6989e91CAE2eBCeCB4e69F22",
-        {
-          "type": "BigNumber",
-          "hex": "0x01"
-        },
-        {
-          "type": "BigNumber",
-          "hex": "0x1bc16d674ec80000"
-        }
-      ],
-      "treeIndex": 2
+      "treeIndex": 6
     },
     {
       "value": [
         "0x0014a04eCAeA261B757a9CCF3480D5fAB1111533",
-        {
-          "type": "BigNumber",
-          "hex": "0x05"
-        },
-        {
-          "type": "BigNumber",
-          "hex": "0x53444835ec580000"
-        }
+        "1",
+        "5000000000000000000"
+      ],
+      "treeIndex": 8
+    },
+    {
+      "value": [
+        "0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB",
+        "2",
+        "3000000000000000000"
+      ],
+      "treeIndex": 7
+    },
+    {
+      "value": [
+        "0x1F4d253DD0E702C5353998C05298f9F3e550f8c7",
+        "3",
+        "1000000000000000000"
+      ],
+      "treeIndex": 5
+    },
+    {
+      "value": [
+        "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4",
+        "4",
+        "4000000000000000000"
       ],
       "treeIndex": 4
     }

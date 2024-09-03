@@ -3,6 +3,7 @@ import fs from "fs";
 import csvParser from "csv-parser";
 import { isAddress } from "@ethersproject/address";
 import { BigNumber } from "@ethersproject/bignumber";
+import { ethers } from "ethers";
 
 // Define the data array
 const values: [string, BigNumber, BigNumber][] = [];
@@ -30,17 +31,24 @@ fs.createReadStream("airdrop_data.csv")
   })
   .on("end", () => {
     try {
-      // Generate the Merkle tree
-      const tree = StandardMerkleTree.of(values, ["address", "uint256", "uint256"]);
-      
+      // Prepare the data for the Merkle tree
+      const formattedValues = values.map(([address, index, amount]) => [
+        address,
+        index.toString(),
+        amount.toString(),
+      ]);
+
+      // Generate the Merkle tree using OpenZeppelin's library
+      const tree = StandardMerkleTree.of(formattedValues, ["address", "uint256", "uint256"]);
+
       console.log("Merkle Root:", tree.root);
-      
+
       // Save the Merkle tree to a file
       fs.writeFileSync("tree.json", JSON.stringify(tree.dump(), null, 2));
-
+      console.log(tree);
       // Verify entries and generate proofs if needed
       for (const [i, v] of tree.entries()) {
-        if (v[0] === '0x1F4d253DD0E702C5353998C05298f9F3e550f8c7') {
+        if (v[0] === '0x5B38Da6a701c568545dCfcB03FcB875f56beddC4') {
           const proof = tree.getProof(i);
           console.log('Value:', v);
           console.log('Proof:', proof);
