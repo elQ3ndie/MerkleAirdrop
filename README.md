@@ -24,9 +24,10 @@ This project provides a complete setup for creating a Merkle tree-based airdrop,
 
 Clone this repository to your local machine:
 
-````bash
+```bash
 git clone <repository-url>
 cd <repository-directory>
+```
 
 ## Setup and Running the Merkle.js Script
 
@@ -36,10 +37,12 @@ Install the required npm packages by running:
 
 ```bash
 npm install
+```
 
 ## Prepare Your CSV File
 
 Ensure that your `airdrop_data.csv` file is in the root directory of the project. The CSV should have three columns: address, index, and amount, where:
+
 - `address` is the recipient's Ethereum address
 - `index` is a unique index for each recipient (use sequential integers)
 - `amount` is the number of tokens to be airdropped
@@ -50,6 +53,7 @@ To generate the Merkle tree and save it to a file, run the following command in 
 
 ```bash
 npx hardhat run <folder>/merkle.js
+```
 
 This script will parse the `airdrop_data.csv`, generate a Merkle tree, display the Merkle root in the console, and save the entire tree to `tree.json`.
 
@@ -61,11 +65,13 @@ Ensure Hardhat is installed in your project:
 
 ```bash
 npm install --save-dev hardhat
+```
 
 ### Initialize Hardhat in Your Project Directory
 
 ```bash
 npx hardhat init
+```
 
 ### Configure Hardhat for Deployment
 
@@ -80,11 +86,13 @@ Replace the placeholder values in `MerkleAirdrop.ts`:
 ```typescript
 const merkleroot = "<your-merkle-root>";
 const tokenAddress = "<your-token-address>";
+```
 
 Deploy the contract using the following command:
 
 ```bash
 npx hardhat ignition deploy ./ignition/modules/<file.js> --network <network name>
+```
 
 Replace `<file.js>` with the name of your deployment script file and `<network name>` with the name of the network you're deploying to (e.g., lisk, sepolia).
 
@@ -102,12 +110,13 @@ Replace the address `0x5B38Da6a701c568545dCfcB03FcB875f56beddC4` with the desire
 
 ```javascript
 for (const [i, v] of tree.entries()) {
-  if (v[0] === '<your-desired-address>') {
+  if (v[0] === "<your-desired-address>") {
     const proof = tree.getProof(i);
-    console.log('Value:', v);
-    console.log('Proof:', proof);
+    console.log("Value:", v);
+    console.log("Proof:", proof);
   }
 }
+```
 
 Run the script again to print the proof.
 
@@ -121,4 +130,3 @@ Run the script again to print the proof.
 ## Conclusion
 
 This project provides a straightforward way to manage an airdrop using a Merkle tree for efficient verification and claiming. Follow the steps above to set up, deploy, and use the airdrop system. Make sure to update the Merkle root and token address appropriately to match your specific use case.
-````
